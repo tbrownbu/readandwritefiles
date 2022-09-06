@@ -1,16 +1,18 @@
 import csv
 
-def main():
+infile = open('customers.csv', 'r')
+outfile = open ('customer_country.csv','w')
 
-    outfile = open('Customer_country.csv', 'w')
-    infile = open('customers.csv', 'r')
-    csv_file = csv.reader(infile, delimiter =',')
+csv_file = csv.reader(infile, delimiter =',')
 
-    outfile.write('Full Name,Country')
+next(csv_file)
 
-    for customer in infile:
-        outfile.write(customer[1] + ',' + customer[2] + ',' + customer[4]+ '\n')
+outfile.write("Full Name, Country\n")
 
-    outfile.close()
+for record in csv_file:
+    full_name = record[1] + " " + record [2]
+    country = record[4]
 
-main()
+    outfile.write(full_name + ',' + country + '\n')
+
+outfile.close()
