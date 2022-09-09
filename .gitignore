@@ -1,1 +1,7 @@
 .venv/
+client.txt
+customers.csv
+print_customers.py
+steps.csv
+add_my_name.py
+employee_pay.csv
